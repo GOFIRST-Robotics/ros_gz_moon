@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version="1.8">
-    <model name='mechanum_drive'>
+    <model name='mecanum_drive'>
         <link name='chassis'>
             <pose>-0.151427 -0 0.175 0 -0 0</pose>
             <inertial>
@@ -198,7 +198,7 @@
             <sensor name='gpu_lidar' type='gpu_lidar'>
                 <pose>0 0 0 0 0 0</pose>
                 <topic>scan</topic>
-                <ignition_frame_id>mechanum_drive/lidar_link</ignition_frame_id>
+                <ignition_frame_id>mecanum_drive/lidar_link</ignition_frame_id>
                 <update_rate>10</update_rate>
                 <lidar>
                     <scan>

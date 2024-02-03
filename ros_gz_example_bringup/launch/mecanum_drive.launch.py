@@ -36,7 +36,7 @@ def generate_launch_description():
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
     # Load the SDF file from "description" package
-    sdf_file  =  os.path.join(pkg_project_description, 'models', 'mechanum_drive', 'model.sdf')
+    sdf_file  =  os.path.join(pkg_project_description, 'models', 'mecanum_drive', 'model.sdf')
     with open(sdf_file, 'r') as infp:
         robot_desc = infp.read()
 
@@ -47,7 +47,7 @@ def generate_launch_description():
         launch_arguments={'gz_args': PathJoinSubstitution([
             pkg_project_gazebo,
             'worlds',
-            'mechanum_drive.sdf'
+            'mecanum_drive.sdf'
         ])}.items(),
     )
 
@@ -67,7 +67,7 @@ def generate_launch_description():
     rviz = Node(
        package='rviz2',
        executable='rviz2',
-       arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'mechanum_drive.rviz')],
+       arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'mecanum_drive.rviz')],
        condition=IfCondition(LaunchConfiguration('rviz'))
     )
 
