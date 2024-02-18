@@ -58,12 +58,40 @@ target_link_libraries(FullSystem PRIVATE
   ignition-gazebo${GZ_SIM_VER}::ignition-gazebo${GZ_SIM_VER})
 
 
+#TestSystem
+add_library(TestSystem
+  SHARED
+  src/TestSystem.cc
+)
+
+target_include_directories(
+  TestSystem PRIVATE include
+)
+
+target_link_libraries(TestSystem PRIVATE
+  ignition-gazebo${GZ_SIM_VER}::ignition-gazebo${GZ_SIM_VER})
+
+
+#Mecanum
+add_library(MecanumDrive
+  SHARED
+  src/MecanumDrive.cc
+)
+
+target_include_directories(
+  MecanumDrive PRIVATE include
+)
+
+target_link_libraries(MecanumDrive PRIVATE
+  ignition-gazebo${GZ_SIM_VER}::ignition-gazebo${GZ_SIM_VER})
+
+
 
 # Following 'install' directive ensures that the compiled libraries
 # of the 'BasicSystem' and 'FullSystem' targets will be copied
 # to the subfolder 'lib/ros_gz_example_gazebo' of the install directory.
 install(
-  TARGETS BasicSystem FullSystem
+  TARGETS BasicSystem FullSystem TestSystem MecanumDrive
   DESTINATION lib/${PROJECT_NAME}
 )
 
